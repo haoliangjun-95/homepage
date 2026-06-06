@@ -1,0 +1,64 @@
+{
+  "site": {
+    "title": "HaoLiangJun",
+    "description": "一个想着在四十岁之前退休的务实的理想主义者",
+    "keywords": "HaoLiangJun,皓亮君,皓亮君主页,皓亮君引导页",
+    "favicon": "./static/img/favicon.ico",
+    "copyright": "HaoLiangJun © 2026",
+    "icp": {
+      "text": "todo1",
+      "url": "https://beian.miit.gov.cn/"
+    },
+    "console": {
+      "copyright": "Copyright © 2026 haoliangjun.com",
+      "cat": [
+        "   /\\\\_/\\\\",
+        "  ( o.o )",
+        "  > ^ <",
+        "  / ~ \\\\",
+        "  /______\\\\"
+      ]
+    }
+  },
+  "profile": {
+    "avatar": "./static/img/logo.jpg",
+    "avatarFrame": "./static/img/logokuang2.png",
+    "name": "皓亮君",
+    "role": "一个喜欢读书、跑步和摄影的文艺程序员",
+    "motto": "夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也!",
+    "location": "深圳市",
+    "organization": "江西省南昌市",
+    "tags": ["INFJ", "摩羯座", "户外徒步", "马拉松", "摄影", "后端", "骑行"]
+  },
+  "timeline": [
+    { "date": "2026.6.7", "text": "搭建微痕网站" },
+    { "date": "2026.6.6", "text": "搭建个人网站" }
+  ],
+  "socialLinks": [
+    { "type": "github", "url": "https://github.com/haoliangjun-95", "tip": "Github", "popup": null },
+    { "type": "email", "url": "mailto:i@haoliangjun_95@163.com", "tip": "Mail", "popup": null },
+    { "type": "wechat", "url": "javascript:void(0)", "tip": "赞助", "popup": "./static/img/wxzsm.png" }
+  ],
+  "sites": [
+    { "title": "微痕", "description": "微信读书笔记管理网站", "url": "https://i.zyyo.cc", "image": "./static/img/wemark.png" },
+    { "title": "CSDN博客", "description": "早期写的Java技术博客", "url": "https://blog.csdn.net/ming19951224", "image": "./static/img/csdn.png" }
+  ],
+  "projects": [
+    { "title": "微痕", "description": "微痕源代码", "url": "https://i.zyyo.cc", "image": "./static/img/wemark.png" }
+  ],
+  "analytics": {
+    "51la": {
+      "id": "KFqltKSkJgQTGD9l",
+      "ck": "KFqltKSkJgQTGD9l"
+    }
+  },
+  "theme": {
+    "cookieExpireDays": 365,
+    "snakePath": "./static/svg/snake-"
+  },
+  "fonts": [
+    { "family": "a", "url": "", "description": "中文字体" },
+    { "family": "b", "url": "./static/fonts/Ubuntu-Regular.ttf", "description": "英文字体" },
+    { "family": "title", "url": "./static/fonts/Pacifico-Regular.ttf", "description": "标题字体" }
+  ]
+}
