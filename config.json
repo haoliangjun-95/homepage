@@ -28,7 +28,7 @@
     "motto": "夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也!",
     "location": "深圳市",
     "organization": "江西省南昌市",
-    "tags": ["INFJ", "摩羯座", "户外徒步", "马拉松", "摄影", "后端", "骑行"]
+    "tags": ["INFJ", "摩羯座", "户外徒步", "马拉松", "摄影", "全栈"]
   },
   "timeline": [
     { "date": "2026.6.7", "text": "搭建微痕网站" },
@@ -36,7 +36,7 @@
   ],
   "socialLinks": [
     { "type": "github", "url": "https://github.com/haoliangjun-95", "tip": "Github", "popup": null },
-    { "type": "email", "url": "mailto:i@haoliangjun_95@163.com", "tip": "Mail", "popup": null },
+    { "type": "email", "url": "mailto:haoliangjun_95@163.com", "tip": "Mail", "popup": null },
     { "type": "wechat", "url": "javascript:void(0)", "tip": "赞助", "popup": "./static/img/wxzsm.png" }
   ],
   "sites": [
@@ -44,7 +44,8 @@
     { "title": "CSDN博客", "description": "早期写的Java技术博客", "url": "https://blog.csdn.net/ming19951224", "image": "./static/img/csdn.png" }
   ],
   "projects": [
-    { "title": "微痕", "description": "微痕源代码", "url": "https://i.zyyo.cc", "image": "./static/img/wemark.png" }
+    { "title": "homepage", "description": "当前网站同款", "url": "https://github.com/haoliangjun-95/homepage", "image": "./static/img/i1.png" },
+    { "title": "SpringBoot学习", "description": "SpringBoot常用的框架入门学习", "url": "https://github.com/haoliangjun-95/springboot-master", "image": "./static/img/springboot.png" }
   ],
   "analytics": {
     "51la": {
@@ -54,7 +55,8 @@
   },
   "theme": {
     "cookieExpireDays": 365,
-    "snakePath": "./static/svg/snake-"
+    "snakePath": "./static/svg/snake-",
+    "background": "./static/img/background2.jpg"
   },
   "fonts": [
     { "family": "a", "url": "", "description": "中文字体" },

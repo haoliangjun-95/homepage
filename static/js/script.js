@@ -23,8 +23,8 @@ function renderPage() {
   document.getElementById('welcome-name').textContent = profile.name;
   var roleWords = profile.role.split(' ');
   var lastWord = roleWords.pop();
-  document.getElementById('profile-role').innerHTML = '\uD83D\uDC66 <span class="purpleText">' + roleWords.join(' ') + '</span> ' + lastWord;
-  document.getElementById('profile-motto').innerHTML = '\uD83D\uDCDD ' + profile.motto.replace(/great/g, '<span class="purpleText textBackground">great</span>').replace(/love/g, '<span class="purpleText textBackground">love</span>');
+  document.getElementById('profile-role').innerHTML = '<span class="descriptionIcon">' + SOCIAL_ICONS.profile + '</span><span class="purpleText">' + roleWords.join(' ') + '</span> ' + lastWord;
+  document.getElementById('profile-motto').innerHTML = '<span class="descriptionIcon">' + SOCIAL_ICONS.motto + '</span>' + profile.motto.replace(/great/g, '<span class="purpleText textBackground">great</span>').replace(/love/g, '<span class="purpleText textBackground">love</span>');
 
   var infoHtml = '';
   infoHtml += '<div class="left-des-item">' + SOCIAL_ICONS.location + profile.location + '</div>';
@@ -53,6 +53,8 @@ function renderPage() {
   socialHtml += '<a class="switch" href="javascript:void(0)"><div class="onoffswitch"><input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked><label class="onoffswitch-label" for="myonoffswitch"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></a>';
   document.getElementById('social-links').innerHTML = socialHtml;
 
+  document.getElementById('sites-title').innerHTML = SOCIAL_ICONS.site + '个人网站';
+  document.getElementById('projects-title').innerHTML = SOCIAL_ICONS.project + 'Github项目';
   document.getElementById('sites-list').innerHTML = renderProjectItems(CONFIG.sites, 'a');
   document.getElementById('projects-list').innerHTML = renderProjectItems(CONFIG.projects, 'b');
 
@@ -144,6 +146,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (themeState == "Dark") {
     Checkbox.checked = false;
+  }
+
+  if (CONFIG.theme && CONFIG.theme.background) {
+    document.body.style.backgroundImage = 'url(' + CONFIG.theme.background + ')';
   }
 
   changeTheme(themeState);
