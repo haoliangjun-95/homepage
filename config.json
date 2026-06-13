@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "HaoLiangJun",
-    "description": "一个想着在四十岁之前退休的务实的理想主义者",
+    "title": "皓亮君的主页",
+    "description": "一个务实的理想主义者",
     "keywords": "HaoLiangJun,皓亮君,皓亮君主页,皓亮君引导页",
     "favicon": "./static/img/favicon.ico",
-    "copyright": "HaoLiangJun © 2026",
+    "copyright": "皓亮君 © 2026",
     "icp": {
-      "text": "todo1",
+      "text": "粤ICP备2026074365号",
       "url": "https://beian.miit.gov.cn/"
     },
     "console": {
-      "copyright": "Copyright © 2026 haoliangjun.com",
+      "copyright": "Copyright © 2026 www.haoliangjun.com",
       "cat": [
         "   /\\\\_/\\\\",
         "  ( o.o )",
@@ -28,24 +28,49 @@
     "motto": "夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也!",
     "location": "深圳市",
     "organization": "江西省南昌市",
-    "tags": ["INFJ", "摩羯座", "户外徒步", "马拉松", "摄影", "全栈"]
+    "tags": ["INFJ", "摩羯座", "户外徒步", "马拉松", "摄影", "全栈开发"]
   },
   "timeline": [
-    { "date": "2026.6.7", "text": "搭建微痕网站" },
-    { "date": "2026.6.6", "text": "搭建个人网站" }
+    { "date": "2026.6.13", "text": "搭建个人摄影集" },
+    { "date": "2026.6.12", "text": "搭建微痕网站" },
+    { "date": "2026.6.11", "text": "网站域名备案成功" },
+    { "date": "2026.6.6", "text": "搭建个人博客" },
+    { "date": "2026.6.6", "text": "搭建个人网站主页" }
   ],
   "socialLinks": [
     { "type": "github", "url": "https://github.com/haoliangjun-95", "tip": "Github", "popup": null },
     { "type": "email", "url": "mailto:haoliangjun_95@163.com", "tip": "Mail", "popup": null },
     { "type": "wechat", "url": "javascript:void(0)", "tip": "赞助", "popup": "./static/img/wxzsm.png" }
   ],
-  "sites": [
-    { "title": "微痕", "description": "微信读书笔记管理网站", "url": "https://i.zyyo.cc", "image": "./static/img/wemark.png" },
-    { "title": "CSDN博客", "description": "早期写的Java技术博客", "url": "https://blog.csdn.net/ming19951224", "image": "./static/img/csdn.png" }
-  ],
-  "projects": [
-    { "title": "homepage", "description": "当前网站同款", "url": "https://github.com/haoliangjun-95/homepage", "image": "./static/img/i1.png" },
-    { "title": "SpringBoot学习", "description": "SpringBoot常用的框架入门学习", "url": "https://github.com/haoliangjun-95/springboot-master", "image": "./static/img/springboot.png" }
+  "categories": [
+    {
+      "name": "个人网站",
+      "icon": "site",
+      "items": [
+        { "title": "微痕", "description": "博文为微信读书软件定制开发的笔记增强管理工具", "url": "https://weread.haoliangjun.com", "image": "./static/img/wemark.png" },
+        { "title": "个人摄影集", "description": "旅行过程中记录的碎片", "url": "https://gallery.haoliangjun.com/", "image": "./static/img/camera.png" },
+        { "title": "个人博客", "description": "碎碎念，随笔分享", "url": "https://blog.haoliangjun.com", "image": "./static/img/logo.jpg" },
+        { "title": "CSDN博客", "description": "早期写的Java技术博客", "url": "https://blog.csdn.net/ming19951224", "image": "./static/img/csdn.png" }
+      ]
+    },
+    {
+      "name": "个人Github项目",
+      "icon": "project",
+      "items": [
+        { "title": "homepage", "description": "当前网站源代码，基于开源项目二次开发", "url": "https://github.com/haoliangjun-95/homepage", "image": "./static/img/homepage.png" },
+        { "title": "微痕", "description": "微站源代码", "url": "https://github.com/haoliangjun-95/weread-mark", "image": "./static/img/wemark.png" },
+        { "title": "SpringBoot学习", "description": "SpringBoot常用的框架入门学习", "url": "https://github.com/haoliangjun-95/springboot-master", "image": "./static/img/springboot.png" }
+      ]
+    },
+    {
+      "name": "开源Github项目推荐",
+      "icon": "github",
+      "items": [
+        { "title": "photoprism", "description": "个人摄影集使用的同款，通过docker即可部署", "url": "https://github.com/photoprism/photoprism", "image": "./static/img/camera.png" },
+        { "title": "halo", "description": "个人博客同款", "url": "https://github.com/halo-dev/halo", "image": "./static/img/i1.png" },
+        { "title": "Pake", "description": "可把网站打包成.exe或.dmg桌面端应用", "url": "https://github.com/tw93/Pake", "image": "./static/img/i2.png" }
+      ]
+    }
   ],
   "analytics": {
     "51la": {

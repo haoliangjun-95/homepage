@@ -53,10 +53,14 @@ function renderPage() {
   socialHtml += '<a class="switch" href="javascript:void(0)"><div class="onoffswitch"><input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked><label class="onoffswitch-label" for="myonoffswitch"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></a>';
   document.getElementById('social-links').innerHTML = socialHtml;
 
-  document.getElementById('sites-title').innerHTML = SOCIAL_ICONS.site + '个人网站';
-  document.getElementById('projects-title').innerHTML = SOCIAL_ICONS.project + 'Github项目';
-  document.getElementById('sites-list').innerHTML = renderProjectItems(CONFIG.sites, 'a');
-  document.getElementById('projects-list').innerHTML = renderProjectItems(CONFIG.projects, 'b');
+  var categoriesContainer = document.getElementById('categories-container');
+  var categoriesHtml = '';
+  CONFIG.categories.forEach(function (cat, idx) {
+    var icon = SOCIAL_ICONS[cat.icon] || '';
+    var cls = String.fromCharCode(97 + idx);
+    categoriesHtml += '<section class="section-card"><div class="title">' + icon + cat.name + '</div><div class="projectList">' + renderProjectItems(cat.items, cls) + '</div></section>';
+  });
+  categoriesContainer.innerHTML = categoriesHtml;
 
   document.getElementById('page-footer').innerHTML = site.copyright + ' | <a href="' + site.icp.url + '">' + site.icp.text + '</a>';
 }
