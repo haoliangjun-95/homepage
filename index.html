@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html class="zyyo.net">
+<html lang="zh-CN">
 
-<head class="zyyo.net">
+<head>
 
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title id="page-title">Zyyo</title>
+	<title id="page-title">皓亮君的主页</title>
 	<link rel="icon" id="page-favicon" href="./static/img/favicon.ico">
-	<meta id="page-description" name="description" content="整天半吊子和不学无术的坏孩子,梦想成为庄稼地里的读书人.....">
-	<meta id="page-keywords" name="keywords" content="zyyo,张扬YO,ZYYO,张扬主页,ZYYO引导页,zhangyang">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta id="page-description" name="description" content="一个务实的理想主义者">
+	<meta id="page-keywords" name="keywords" content="HaoLiangJun,皓亮君,皓亮君主页,皓亮君引导页">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://www.haoliangjun.com/">
+
+	<meta property="og:site_name" content="皓亮君的主页">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="皓亮君的主页">
+	<meta property="og:description" content="一个务实的理想主义者">
+	<meta property="og:url" content="https://www.haoliangjun.com/">
+	<meta property="og:image" content="https://www.haoliangjun.com/static/img/logo.jpg">
+	<meta name="twitter:card" content="summary">
+
+	<link rel="preload" href="./static/fonts/Ubuntu-Regular.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="stylesheet" href="./static/css/style.css">
 	<link rel="stylesheet" href="./static/css/root.css">
 
@@ -25,7 +35,7 @@
 	<div class="zyyo-main">
 		<div class="zyyo-left">
 			<div class="logo" id="profile-avatar">
-				<img id="profile-avatar-frame" style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;">
+				<img id="profile-avatar-frame" alt="" aria-hidden="true" style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;">
 			</div>
 			<div class="left-div left-des" id="profile-info">
 			</div>
@@ -39,10 +49,10 @@
 		<div class="zyyo-right">
 			<header>
 				<div class="index-logo" id="index-logo" >
-					<img style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;">
+					<img alt="" aria-hidden="true" style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;">
 				</div>
 				<div class="welcome">
-					<span class="gradientText" id="welcome-name"></span>的个人主页
+					<span class="gradientText" id="welcome-name">皓亮君</span>的个人主页
 				</div>
 				<div class="description" id="profile-role"></div>
 				<div class="description" id="profile-motto"></div>
@@ -50,25 +60,32 @@
 				<div class="iconContainer" id="social-links">
 				</div>
 
-				<div class="tanChiShe">
+				<div class="mobile-tags" id="mobile-tags"></div>
+
+				<div class="tanChiShe" aria-hidden="true">
 					<img id="tanChiShe" src="./static/svg/snake-Light.svg" alt="">
 				</div>
 			</header>
 
 			<main id="categories-container">
 			</main>
+
+			<details class="mobile-timeline" id="mobile-timeline">
+				<summary>建站时间线</summary>
+				<ul id="line-mobile"></ul>
+			</details>
 		</div>
 	</div>
 	<footer id="page-footer">
 	</footer>
 	<div class="tc">
 		<div onclick="" class="tc-main">
-			<img class="tc-img" src="" alt="" srcset="">
+			<img class="tc-img" src="" alt="弹窗图片">
 		</div>
 
 	</div>
 </body>
-<script src="./static/js/config-loader.js"> </script>
-<script src="./static/js/script.js"> </script>
+<script defer src="./static/js/config-loader.js"></script>
+<script defer src="./static/js/script.js"></script>
 
 </html>

@@ -36,6 +36,10 @@ function renderPage() {
     tagsHtml += '<div class="left-tag-item">' + tag + '</div>';
   });
   document.getElementById('profile-tags').innerHTML = tagsHtml;
+  var mobileTags = document.getElementById('mobile-tags');
+  if (mobileTags) {
+    mobileTags.innerHTML = tagsHtml;
+  }
 
   var lineEl = document.getElementById('line');
   var timelineHtml = '';
@@ -43,14 +47,18 @@ function renderPage() {
     timelineHtml += '<li><div class="focus"></div><div>' + item.text + '</div><div>' + item.date + '</div></li>';
   });
   lineEl.innerHTML = timelineHtml;
+  var lineMobileEl = document.getElementById('line-mobile');
+  if (lineMobileEl) {
+    lineMobileEl.innerHTML = timelineHtml;
+  }
 
   var socialHtml = '';
   CONFIG.socialLinks.forEach(function (link) {
     var iconSvg = SOCIAL_ICONS[link.type] || '';
     var onclick = link.popup ? ' onclick="pop(\'' + link.popup + '\')"' : '';
-    socialHtml += '<a class="iconItem"' + onclick + ' href="' + link.url + '">' + iconSvg + '<div class="iconTip">' + link.tip + '</div></a>';
+    socialHtml += '<a class="iconItem" aria-label="' + link.tip + '"' + onclick + ' href="' + link.url + '">' + iconSvg + '<div class="iconTip">' + link.tip + '</div></a>';
   });
-  socialHtml += '<a class="switch" href="javascript:void(0)"><div class="onoffswitch"><input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked><label class="onoffswitch-label" for="myonoffswitch"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></a>';
+  socialHtml += '<a class="switch" href="javascript:void(0)"><div class="onoffswitch"><input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked aria-label="切换明暗主题"><label class="onoffswitch-label" for="myonoffswitch"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div></a>';
   document.getElementById('social-links').innerHTML = socialHtml;
 
   var categoriesContainer = document.getElementById('categories-container');
@@ -58,7 +66,7 @@ function renderPage() {
   CONFIG.categories.forEach(function (cat, idx) {
     var icon = SOCIAL_ICONS[cat.icon] || '';
     var cls = String.fromCharCode(97 + idx);
-    categoriesHtml += '<section class="section-card"><div class="title">' + icon + cat.name + '</div><div class="projectList">' + renderProjectItems(cat.items, cls) + '</div></section>';
+    categoriesHtml += '<section class="section-card"><h2 class="title">' + icon + cat.name + '</h2><div class="projectList">' + renderProjectItems(cat.items, cls) + '</div></section>';
   });
   categoriesContainer.innerHTML = categoriesHtml;
 
@@ -68,7 +76,7 @@ function renderPage() {
 function renderProjectItems(items, cls) {
   var html = '';
   items.forEach(function (item) {
-    html += '<a class="projectItem ' + cls + '" target="_blank" href="' + item.url + '"><div class="projectItemLeft"><h1>' + item.title + '</h1><p>' + item.description + '</p></div><div class="projectItemRight"><img src="' + item.image + '" alt=""></div></a>';
+    html += '<a class="projectItem ' + cls + '" target="_blank" rel="noopener" href="' + item.url + '"><div class="projectItemLeft"><h3>' + item.title + '</h3><p>' + item.description + '</p></div><div class="projectItemRight"><img src="' + item.image + '" alt="' + item.title + '图标"></div></a>';
   });
   return html;
 }
@@ -123,11 +131,12 @@ function getCookie(name) {
   return null;
 }
 
-renderPage();
-
-document.addEventListener('DOMContentLoaded', function () {
+function initTheme() {
   var html = document.querySelector('html');
-  var themeState = getCookie("themeState") || "Light";
+  var themeState = getCookie("themeState");
+  if (themeState !== "Light" && themeState !== "Dark") {
+    themeState = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "Dark" : "Light";
+  }
   var tanChiShe = document.getElementById("tanChiShe");
 
   function changeTheme(theme) {
@@ -141,8 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
   Checkbox.addEventListener('change', function () {
     if (themeState == "Dark") {
       changeTheme("Light");
-    } else if (themeState == "Light") {
-      changeTheme("Dark");
     } else {
       changeTheme("Dark");
     }
@@ -157,48 +164,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   changeTheme(themeState);
+}
 
-  var fpsElement = document.createElement('div');
-  fpsElement.id = 'fps';
-  fpsElement.style.zIndex = '10000';
-  fpsElement.style.position = 'fixed';
-  fpsElement.style.left = '0';
-  document.body.insertBefore(fpsElement, document.body.firstChild);
-
-  var showFPS = (function () {
-    var requestAnimationFrame = window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      window.msRequestAnimationFrame ||
-      function (callback) {
-        window.setTimeout(callback, 1000 / 60);
-      };
-
-    var fps = 0,
-      last = Date.now(),
-      offset, step, appendFps;
-
-    step = function () {
-      offset = Date.now() - last;
-      fps += 1;
-
-      if (offset >= 1000) {
-        last += offset;
-        appendFps(fps);
-        fps = 0;
-      }
-
-      requestAnimationFrame(step);
-    };
-
-    appendFps = function (fpsValue) {
-      fpsElement.textContent = 'FPS: ' + fpsValue;
-    };
-
-    step();
-  })();
-
+function initPressEffects() {
   var buttons = document.querySelectorAll('.projectItem');
   buttons.forEach(function (button) {
     button.addEventListener('mousedown', handlePress);
@@ -208,11 +176,21 @@ document.addEventListener('DOMContentLoaded', function () {
     button.addEventListener('touchend', handleRelease);
     button.addEventListener('touchcancel', handleCancel);
   });
-});
+}
 
-document.addEventListener('contextmenu', function (event) {
-  event.preventDefault();
-});
+function injectAnalytics() {
+  var analytics = CONFIG && CONFIG.analytics && CONFIG.analytics['51la'];
+  if (analytics) {
+    var s = document.createElement('script');
+    s.src = '//sdk.51.la/js-sdk-pro.min.js';
+    s.onload = function () {
+      if (window.LA && window.LA.init) {
+        window.LA.init({ id: analytics.id, ck: analytics.ck });
+      }
+    };
+    document.body.appendChild(s);
+  }
+}
 
 function handlePress() {
   this.classList.add('pressed');
@@ -227,20 +205,23 @@ function handleCancel() {
 }
 
 var pageLoading = document.querySelector("#zyyo-loading");
-window.addEventListener('load', function () {
+function hideLoading() {
   setTimeout(function () {
     pageLoading.style.opacity = '0';
   }, 100);
-});
-
-var analytics = CONFIG && CONFIG.analytics && CONFIG.analytics['51la'];
-if (analytics) {
-  var s = document.createElement('script');
-  s.src = '//sdk.51.la/js-sdk-pro.min.js';
-  s.onload = function () {
-    if (window.LA && window.LA.init) {
-      window.LA.init({ id: analytics.id, ck: analytics.ck });
-    }
-  };
-  document.body.appendChild(s);
 }
+if (document.readyState === 'complete') {
+  hideLoading();
+} else {
+  window.addEventListener('load', hideLoading);
+}
+
+CONFIG_READY.then(function () {
+  if (!CONFIG.site) {
+    return;
+  }
+  renderPage();
+  initTheme();
+  initPressEffects();
+  injectAnalytics();
+});

@@ -1,6 +1,6 @@
-# Zyyo Homepage
+# 皓亮君的个人主页
 
-基于纯 HTML、CSS 和 JavaScript 构建的配置驱动个人主页/导航页。
+基于纯 HTML、CSS 和 JavaScript 构建的配置驱动个人主页/导航页（基于开源项目 [Zyyo](https://zyyo.net) 二次开发）。
 
 ## 功能特性
 
@@ -9,20 +9,17 @@
 - **时间线**：个人历程/事件记录
 - **社交链接**：GitHub、邮箱、微信（二维码弹窗）等
 - **网站与项目展示**：卡片式网格布局，支持悬停动效
-- **明暗主题切换**：支持亮色/暗色切换，Cookie 持久化（365天）
-- **多套内置主题**：5 套亮色主题 + 1 套暗色主题，基于 CSS 变量
+- **明暗主题切换**：亮色/暗色切换，Cookie 持久化（365天），首次访问跟随系统偏好
 - **响应式设计**：适配桌面端和移动端
 - **加载动画**：页面加载时缩放动画
-- **FPS 计数器**：实时帧率显示
 - **贪吃蛇动画**：根据主题切换的 SVG 装饰
-- **自定义字体**：中文字体、英文字体（Ubuntu）、标题字体（Pacifico）
+- **自定义字体**：英文字体（Ubuntu）、标题字体（Pacifico），woff2 子集化
 - **图片弹窗**：点击查看大图（如二维码）
 - **网站统计**：集成 51.la 统计
+- **SEO 基础**：语义化标题层级、Open Graph 标签、canonical、robots.txt、sitemap.xml、404 页面
 - **控制台彩蛋**：开发者工具中显示自定义版权信息与 ASCII 猫
 - **ICP 备案**：页脚 ICP 备案信息
-- **自定义滚动条**：极简滚动条样式
 - **毛玻璃效果**：卡片背景模糊的玻璃态设计
-- **禁用右键菜单**：防止右键点击
 
 ## 使用方法
 
@@ -43,12 +40,19 @@ server {
     root /www/wwwroot/homepage;
     index index.html;
 
+    error_page 404 /404.html;
+
     location / {
         try_files $uri $uri/ /index.html;
     }
 
+    # 文本资源压缩（SVG 动画体积大，gzip 效果显著）
+    gzip on;
+    gzip_types text/css application/javascript image/svg+xml application/json;
+    gzip_min_length 1k;
+
     # 静态资源缓存
-    location ~* \.(jpg|jpeg|png|gif|ico|svg|css|js|ttf|woff|woff2)$ {
+    location ~* \.(jpg|jpeg|png|gif|webp|ico|svg|css|js|woff2)$ {
         expires 30d;
         add_header Cache-Control "public, immutable";
     }

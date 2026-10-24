@@ -22,7 +22,7 @@
   },
   "profile": {
     "avatar": "./static/img/logo.jpg",
-    "avatarFrame": "./static/img/logokuang2.png",
+    "avatarFrame": "./static/img/logokuang2.webp",
     "name": "皓亮君",
     "role": "一个喜欢读书、跑步和摄影的文艺程序员",
     "motto": "夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也!",
@@ -40,7 +40,7 @@
   "socialLinks": [
     { "type": "github", "url": "https://github.com/haoliangjun-95", "tip": "Github", "popup": null },
     { "type": "email", "url": "mailto:haoliangjun_95@163.com", "tip": "Mail", "popup": null },
-    { "type": "wechat", "url": "javascript:void(0)", "tip": "赞助", "popup": "./static/img/wxzsm.png" }
+    { "type": "wechat", "url": "javascript:void(0)", "tip": "赞助", "popup": "./static/img/wxzsm.webp" }
   ],
   "categories": [
     {
@@ -84,8 +84,8 @@
     "background": "./static/img/background2.jpg"
   },
   "fonts": [
-    { "family": "a", "url": "", "description": "中文字体" },
-    { "family": "b", "url": "./static/fonts/Ubuntu-Regular.ttf", "description": "英文字体" },
-    { "family": "title", "url": "./static/fonts/Pacifico-Regular.ttf", "description": "标题字体" }
+    { "family": "a", "url": "", "description": "中文字体（回落系统字体）" },
+    { "family": "b", "url": "./static/fonts/Ubuntu-Regular.woff2", "description": "英文字体" },
+    { "family": "title", "url": "./static/fonts/Pacifico-Regular.woff2", "description": "标题字体" }
   ]
 }
